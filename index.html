@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" data-bs-theme="dark">
 
 <head>
     <meta charset="UTF-8">
@@ -9,9 +9,13 @@
 
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@docsearch/css@3">
 
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.17.0/font/bootstrap-icons.css" rel="stylesheet">
+
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"
         integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL"
         crossorigin="anonymous"></script>
+
+    <script src="../assets/js/color-modes.js"></script>
 
     <style>
         .back-to-top {
@@ -30,17 +34,81 @@
             margin-top: 20px;
         }
 
-        body {
-            background-color: #474343 !important;
+        .btn-bd-primary {
+            --bd-violet-bg: rgb(189, 85, 34);
+            --bd-violet-rgb: 112.520718, 44.062154, 249.437846;
+            --bs-btn-font-weight: 600;
+            --bs-btn-color: var(--bs-white);
+            --bs-btn-bg: var(--bd-violet-bg);
+            --bs-btn-border-color: var(--bd-violet-bg);
+            --bs-btn-hover-color: var(--bs-white);
+            --bs-btn-hover-bg: rgb(206, 103, 51);
+            --bs-btn-hover-border-color: rgb(206, 103, 51);
+            --bs-btn-focus-shadow-rgb: var(--bd-violet-rgb);
+            --bs-btn-active-color: var(--bs-btn-hover-color);
+            --bs-btn-active-bg: rgb(206, 103, 51);
+            --bs-btn-active-border-color: rgb(206, 103, 51);
         }
     </style>
-    <title>Carousel</title>
+    <title>Big Cats Zoo</title>
 </head>
 
 <body class="bg-body-tertiary">
 
+    <!-- dark mode toggle -->
+    <div class="dropdown position-fixed bottom-0 end-0 mb-3 me-3 bd-mode-toggle">
+        <button class="btn btn-bd-primary py-2 dropdown-toggle d-flex align-items-center" id="bd-theme" type="button"
+            aria-expanded="false" data-bs-toggle="dropdown" aria-label="Toggle theme (light)">
+            <span class="theme-text">Page Mode</span>
+            <svg class="bi my-1 theme-icon-active" width="1em" height="1em">
+                <use href="#sun-fill"></use>
 
-<!-- header -->
+            </svg>
+            <span class="visually-hidden" id="bd-theme-text">Toggle theme</span>
+        </button>
+        <ul class="dropdown-menu dropdown-menu-end shadow" aria-labelledby="bd-theme-text">
+            <li>
+                <button type="button" class="dropdown-item d-flex align-items-center active" data-bs-theme-value="light"
+                    aria-pressed="true">
+                    <svg class="bi me-2 opacity-50 theme-icon" width="1em" height="1em">
+                        <use href="#sun-fill"></use>
+                    </svg>
+                    Light
+                    <svg class="bi ms-auto d-none" width="1em" height="1em">
+                        <use href="#check2"></use>
+                    </svg>
+                </button>
+            </li>
+            <li>
+                <button type="button" class="dropdown-item d-flex align-items-center" data-bs-theme-value="dark"
+                    aria-pressed="false">
+                    <svg class="bi me-2 opacity-50 theme-icon" width="1em" height="1em">
+                        <use href="#moon-stars-fill"></use>
+                    </svg>
+                    Dark
+                    <svg class="bi ms-auto d-none" width="1em" height="1em">
+                        <use href="#check2"></use>
+                    </svg>
+                </button>
+            </li>
+            <li>
+                <button type="button" class="dropdown-item d-flex align-items-center" data-bs-theme-value="auto"
+                    aria-pressed="false">
+                    <svg class="bi me-2 opacity-50 theme-icon" width="1em" height="1em">
+                        <use href="#circle-half"></use>
+                    </svg>
+                    Auto
+                    <svg class="bi ms-auto d-none" width="1em" height="1em">
+                        <use href="#check2"></use>
+                    </svg>
+                </button>
+            </li>
+        </ul>
+    </div>
+
+
+
+    <!-- header -->
     <div class="container">
         <header class="border-bottom py-3">
             <div class="row">
@@ -52,16 +120,10 @@
 
 
 
-<!-- carousel -->
+        <!-- carousel -->
 
-        <div id="myCarousel" class="carousel slide mb-6" data-bs-ride="carousel">
-            <div class="carousel-indicators">
-                <button type="button" data-bs-target="#myCarousel" data-bs-slide-to="0" class="active"
-                    aria-current="true" aria-label="Slide 1"></button>
-                <button type="button" data-bs-target="#myCarousel" data-bs-slide-to="1" aria-label="Slide 2"></button>
-                <button type="button" data-bs-target="#myCarousel" data-bs-slide-to="2" aria-label="Slide 3"></button>
-                <button type="button" data-bs-target="#myCarousel" data-bs-slide-to="3" aria-label="Slide 4"></button>
-            </div>
+        <div id="myCarouselTop" class="carousel slide mb-6" data-bs-ride="carousel">
+
             <div class="carousel-inner">
                 <div class="carousel-item active">
                     <img src="media/leopardcr1.png" class="d-block w-100" alt="leopard">
@@ -78,14 +140,7 @@
 
 
             </div>
-            <button class="carousel-control-prev" type="button" data-bs-target="#myCarousel" data-bs-slide="prev">
-                <span class="carousel-control-prev-icon" aria-hidden="true"></span>
-                <span class="visually-hidden">Previous</span>
-            </button>
-            <button class="carousel-control-next" type="button" data-bs-target="#myCarousel" data-bs-slide="next">
-                <span class="carousel-control-next-icon" aria-hidden="true"></span>
-                <span class="visually-hidden">Next</span>
-            </button>
+
         </div>
 
 
@@ -95,12 +150,12 @@
             <div class="bd-example-snippet bd-code-snippet">
                 <div class="bd-example m-0 border-0">
 
-                    <a href="index.html" class="btn btn-dark mb-2" role="button">Home</a>
+                    <a href="index.html" class="btn btn-secondary mb-2" role="button">Home</a>
                     <a href="#lion" class="btn btn-warning mb-2" role="button">Lion</a>
                     <a href="#tiger" class="btn btn-warning mb-2" role="button">Tiger</a>
                     <a href="#cheetah" class="btn btn-warning mb-2" role="button">Cheetah</a>
                     <a href="#leopard" class="btn btn-warning mb-2" role="button">Leopard</a>
-                    <a href="about.html" class="btn btn-dark mb-2" role="button">About</a>
+                    <a href="about.html" class="btn btn-secondary mb-2" role="button">About</a>
                 </div>
             </div>
         </div>
@@ -111,7 +166,7 @@
         <div class="row featurette" id="lion">
             <div class="col-md-7">
                 <h2 class="featurette-heading fw-normal lh-1" style="padding: 20px;">The Lion</h2>
-                <br>
+
                 <p class="lead" style="padding: 20px;">The lion (Panthera leo) is a majestic big cat found in Africa and
                     small parts of India.<br> Known for their social structure, lions form prides led by males with
                     impressive manes.<br> Facing conservation challenges, they are iconic symbols, representing strength
@@ -120,9 +175,43 @@
                 </p>
             </div>
             <div class="col-md-5">
-                <img src="media/lion.png"
-                    class="bd-placeholder-img bd-placeholder-img-lg featurette-image img-fluid mx-auto" width="500"
-                    preserveAspectRatio="xMidYMid slice">
+                <div id="myCarousel" class="carousel slide mb-6" data-bs-ride="carousel">
+                    <div class="carousel-indicators">
+                        <button type="button" data-bs-target="#myCarousel" data-bs-slide-to="0" class="active"
+                            aria-current="true" aria-label="Slide 1"></button>
+                        <button type="button" data-bs-target="#myCarousel" data-bs-slide-to="1"
+                            aria-label="Slide 2"></button>
+                        <button type="button" data-bs-target="#myCarousel" data-bs-slide-to="2"
+                            aria-label="Slide 3"></button>
+                        <button type="button" data-bs-target="#myCarousel" data-bs-slide-to="3"
+                            aria-label="Slide 4"></button>
+                    </div>
+                    <div class="carousel-inner">
+                        <div class="carousel-item active">
+                            <img src="media/lion.png" class="d-block w-100" alt="lion">
+                        </div>
+                        <div class="carousel-item">
+                            <img src="media/lion2.png" class="d-block w-100" alt="lionh">
+                        </div>
+                        <div class="carousel-item">
+                            <img src="media/lion3.png" class="d-block w-100" alt="lion">
+                        </div>
+                        <div class="carousel-item">
+                            <img src="media/lion4.png" class="d-block w-100" alt="lion">
+                        </div>
+
+                    </div>
+                    <button class="carousel-control-prev" type="button" data-bs-target="#myCarousel"
+                        data-bs-slide="prev">
+                        <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                        <span class="visually-hidden">Previous</span>
+                    </button>
+                    <button class="carousel-control-next" type="button" data-bs-target="#myCarousel"
+                        data-bs-slide="next">
+                        <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                        <span class="visually-hidden">Next</span>
+                    </button>
+                </div>
             </div>
         </div>
         <!-- tiger -->
@@ -141,9 +230,38 @@
                     these iconic and endangered predators.</p>
             </div>
             <div class="col-md-5 order-md-1">
-                <img src="media/tiger.png"
-                    class="bd-placeholder-img bd-placeholder-img-lg featurette-image img-fluid mx-auto" width="500"
-                    preserveAspectRatio="xMidYMid slice" style="padding: 20px;">
+                <div id="myCarousel2" class="carousel slide mb-6" data-bs-ride="carousel">
+                    <div class="carousel-indicators">
+                        <button type="button" data-bs-target="#myCarousel2" data-bs-slide-to="0" class="active"
+                            aria-current="true" aria-label="Slide 1"></button>
+                        <button type="button" data-bs-target="#myCarousel2" data-bs-slide-to="1"
+                            aria-label="Slide 2"></button>
+                        <button type="button" data-bs-target="#myCarousel2" data-bs-slide-to="2"
+                            aria-label="Slide 3"></button>
+                    </div>
+                    <div class="carousel-inner">
+                        <div class="carousel-item active">
+                            <img src="media/tiger.png" class="d-block w-100" alt="Tiger">
+                        </div>
+                        <div class="carousel-item">
+                            <img src="media/tiger2.png" class="d-block w-100" alt="Tiger">
+                        </div>
+                        <div class="carousel-item">
+                            <img src="media/tiger3.png" class="d-block w-100" alt="Tiger">
+                        </div>
+
+                    </div>
+                    <button class="carousel-control-prev" type="button" data-bs-target="#myCarousel2"
+                        data-bs-slide="prev">
+                        <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                        <span class="visually-hidden">Previous</span>
+                    </button>
+                    <button class="carousel-control-next" type="button" data-bs-target="#myCarousel2"
+                        data-bs-slide="next">
+                        <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                        <span class="visually-hidden">Next</span>
+                    </button>
+                </div>
             </div>
         </div>
         <!-- cheetah -->
@@ -152,7 +270,7 @@
         <div class="row featurette" id="cheetah">
             <div class="col-md-7">
                 <h2 class="featurette-heading fw-normal lh-1" style="padding: 20px;">The Cheetah</h2>
-                <br>
+
                 <p class="lead" style="padding: 20px;">The cheetah (Acinonyx jubatus) is a swift big cat found in parts
                     of
                     Africa and the Middle East.<br> Recognized for its slender build and distinctive black tear stripes,
@@ -160,9 +278,38 @@
                     incredible speed and are adapted for high-speed chases when hunting prey.</p>
             </div>
             <div class="col-md-5">
-                <img src="media/cheetah.png"
-                    class="bd-placeholder-img bd-placeholder-img-lg featurette-image img-fluid mx-auto" width="500"
-                    preserveAspectRatio="xMidYMid slice">
+                <div id="myCarousel3" class="carousel slide mb-6" data-bs-ride="carousel">
+                    <div class="carousel-indicators">
+                        <button type="button" data-bs-target="#myCarousel3" data-bs-slide-to="0" class="active"
+                            aria-current="true" aria-label="Slide 1"></button>
+                        <button type="button" data-bs-target="#myCarousel3" data-bs-slide-to="1"
+                            aria-label="Slide 2"></button>
+                        <button type="button" data-bs-target="#myCarousel3" data-bs-slide-to="2"
+                            aria-label="Slide 3"></button>
+                    </div>
+                    <div class="carousel-inner">
+                        <div class="carousel-item active">
+                            <img src="media/cheetah.png" class="d-block w-100" alt="Cheetah">
+                        </div>
+                        <div class="carousel-item">
+                            <img src="media/cheetah2.png" class="d-block w-100" alt="Cheetah">
+                        </div>
+                        <div class="carousel-item">
+                            <img src="media/cheetah3.png" class="d-block w-100" alt="Cheetah">
+                        </div>
+
+                    </div>
+                    <button class="carousel-control-prev" type="button" data-bs-target="#myCarousel3"
+                        data-bs-slide="prev">
+                        <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                        <span class="visually-hidden">Previous</span>
+                    </button>
+                    <button class="carousel-control-next" type="button" data-bs-target="#myCarousel3"
+                        data-bs-slide="next">
+                        <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                        <span class="visually-hidden">Next</span>
+                    </button>
+                </div>
             </div>
         </div>
 
@@ -179,18 +326,42 @@
                     wildlife trade, threatening their survival.</p>
             </div>
             <div class="col-md-5">
-                <img src="media/leopard.png"
-                    class="bd-placeholder-img bd-placeholder-img-lg featurette-image img-fluid mx-auto" width="500"
-                    preserveAspectRatio="xMidYMid slice">
+                <div id="myCarousel4" class="carousel slide mb-6" data-bs-ride="carousel">
+                    <div class="carousel-indicators">
+                        <button type="button" data-bs-target="#myCarousel4" data-bs-slide-to="0" class="active"
+                            aria-current="true" aria-label="Slide 1"></button>
+                        <button type="button" data-bs-target="#myCarousel4" data-bs-slide-to="1"
+                            aria-label="Slide 2"></button>
+                        <button type="button" data-bs-target="#myCarousel4" data-bs-slide-to="2"
+                            aria-label="Slide 3"></button>
+                    </div>
+                    <div class="carousel-inner">
+                        <div class="carousel-item active">
+                            <img src="media/leopard.png" class="d-block w-100" alt="leopard">
+                        </div>
+                        <div class="carousel-item">
+                            <img src="media/leopard2.png" class="d-block w-100" alt="leopard">
+                        </div>
+                        <div class="carousel-item">
+                            <img src="media/leopard3.png" class="d-block w-100" alt="leopard">
+                        </div>
+
+                    </div>
+                    <button class="carousel-control-prev" type="button" data-bs-target="#myCarousel4"
+                        data-bs-slide="prev">
+                        <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                        <span class="visually-hidden">Previous</span>
+                    </button>
+                    <button class="carousel-control-next" type="button" data-bs-target="#myCarousel4"
+                        data-bs-slide="next">
+                        <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                        <span class="visually-hidden">Next</span>
+                    </button>
+                </div>
             </div>
         </div>
 
         <hr class="featurette-divider">
-
-
-
-
-
 
 
         <!-- Back to Top Button -->
@@ -215,12 +386,10 @@
             });
         </script>
 
-
-
-
-
-
     </div>
+
+
+
 </body>
 
 </html>

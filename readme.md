@@ -1,1 +1,1 @@
-Carousel with JS and CSS from bootstrapper.
+Custom made Carousel with JS and CSS from bootstrap.
